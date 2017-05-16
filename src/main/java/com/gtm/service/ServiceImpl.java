@@ -3,6 +3,7 @@ package com.gtm.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.gtm.dao.IDao;
@@ -12,6 +13,7 @@ import com.gtm.metier.User;
 public class ServiceImpl implements IService {
 
 	@Autowired
+	@Qualifier("daoImplHibernate")
 	private IDao dao;
 	
 	@Override
