@@ -39,7 +39,7 @@ public class DaoImplJPA implements IDao {
 	}
 
 	@Override
-	public List<User> listerParNom(String nom) {
+	public User listerParNom(String nom) {
 		// TODO Auto-generated method stub
 		return null;
 	}

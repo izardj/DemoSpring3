@@ -24,7 +24,7 @@
 
     <!-- BEWARE if you use Hibernate 3, use instead class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean -->
     <!-- bean de creation de la session factory -->
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
     <!-- la propriété dataSource de la sessionFactory  c'est le bean dataSource défini plus haut -->
         <property name="dataSource" ref="dataSource" />
         <!-- la propriété du package à scanner ici business.model qui va chercher les classes à transformer en bean-->
@@ -46,7 +46,7 @@
     </bean>
 
 <!-- définition du gestionnaire de transactions faisant référence au bean sessionFactory -->
-    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory">
             <ref bean="sessionFactory" />
         </property>

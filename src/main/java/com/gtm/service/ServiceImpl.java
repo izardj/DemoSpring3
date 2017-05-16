@@ -23,32 +23,27 @@ public class ServiceImpl implements IService {
 
 	@Override
 	public List<User> listerUsers() {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.listerUsers();
 	}
 
 	@Override
 	public void supprimerUser(long id) {
-		// TODO Auto-generated method stub
-
+		dao.supprimerUser(id);
 	}
 
 	@Override
 	public User trouverUser(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.trouverUser(id);
 	}
 
 	@Override
 	public List<User> listerParMC(String nom) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.listerParMC(nom);
 	}
 
 	@Override
-	public List<User> listerParNom(String nom) {
-		// TODO Auto-generated method stub
-		return null;
+	public User listerParNom(String nom) {
+		return dao.listerParNom(nom);
 	}
 
 }
