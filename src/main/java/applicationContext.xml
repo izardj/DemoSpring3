@@ -45,21 +45,29 @@
         </property>
     </bean>
 
-<!-- définition du gestionnaire de transactions faisant référence au bean sessionFactory -->
+	<!-- définition du gestionnaire de transactions faisant référence au bean sessionFactory -->
     <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory">
             <ref bean="sessionFactory" />
         </property>
 
     </bean>
-    <!-- 
-    <bean id="ville" class="business.model.City" />
-    <bean id="pays" class="business.model.Country"/>
-     -->
+	<!-- CONFIG JPA -->
+	<bean id="entityManagerFactory"
+        class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" primary="true">
+        <property name="persistenceUnitName" value="testPU" />
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <bean id="transactionManagerJPA" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+	<!-- FIN CONFIG JPA -->
     <!-- pour utiliser les annotations spring -->
     <context:annotation-config />
     <!-- package contenant les classes annotées spring -->
     <context:component-scan base-package="com.gtm" />
     <!-- prise en compte du gestionnaire de transaction pour @Transactional-->
-    <tx:annotation-driven transaction-manager="transactionManager" />
+<!--     <tx:annotation-driven transaction-manager="transactionManager" /> -->
+    <tx:annotation-driven transaction-manager="transactionManagerJPA" />
 </beans>
