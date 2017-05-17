@@ -17,31 +17,37 @@ public class Lanceur {
 		// 2- recuperation d'un bean
 		IService service = (IService) appContext.getBean("serviceImpl");
 		User u = (User) appContext.getBean("user");
-		u.setNom("testJPANom");
-		u.setPrenom("JPA");
+		u.setNom("Johnson");
+		u.setPrenom("Rod");
 		User u2 = (User) appContext.getBean("user");
 		
 		// 3- Traitement
 		
 		// AJOUTER USER
+		System.out.println("------------------- AJOUTER USER -------------------------");
 		service.ajouterUser(u);
 		
 		// LISTER USER
+		System.out.println("------------------- LISTER USER -------------------------");
 		List<User> users = service.listerUsers();
 		for (User user : users) {
 			System.out.println(user);
 		}
 		
 		// TROUVER USER PAR ID
+		System.out.println("------------------- TROUVER USER PAR ID -------------------------");
 		System.out.println(service.trouverUser(1));
 		
-		// SUPPRIMER USER		
+		// SUPPRIMER USER
+		//System.out.println("------------------- SUPPRIMER USER -------------------------");
 		//service.supprimerUser(2);
 		
 		// LISTER USER PAR NOM
+		System.out.println("------------------- LISTER USER PAR NOM -------------------------");
 		System.out.println(service.listerParNom("Gosling"));
 		
 		// LISTER USER PAR MC
+		System.out.println("------------------- LISTER USER PAR MC -------------------------");
 		List<User> usersMC = service.listerParMC("A");
 		for (User user : usersMC) {
 			System.out.println(user);
